@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../libs/firebase/firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 
-import { useSecretData, useSecretList } from "../hooks/useSecretdata";
+import { useSecretList } from "../hooks/useSecretdata";
 
 export const SecretPage = () => {
   const navigate = useNavigate();
