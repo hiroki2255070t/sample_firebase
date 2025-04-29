@@ -3,6 +3,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Login } from "./pages/Login.tsx";
+import { HistoryPage } from "./pages/History.tsx";
 import { SecretPage } from "./pages/SecretPage.tsx";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Root />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/history" element={<HistoryPage />} />
         <Route
           path="/secrets"
           element={
