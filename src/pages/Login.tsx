@@ -1,4 +1,4 @@
-import { auth } from "../lib/firebase-config";
+import { auth } from "../libs/firebase/firebase-config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -9,10 +9,10 @@ export const Login = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("ログイン成功:", result.user);
-      if (result.user.email == "2255070t@gsuite.kobe-u.ac.jp"){
-        navigate("/secret");
+      if (result.user.email == "2255070t@gsuite.kobe-u.ac.jp") {
+        navigate("/secrets");
       } else {
-        navigate("/home")
+        navigate("/home");
       }
     } catch (error) {
       console.error("ログイン失敗:", error);

@@ -13,7 +13,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route
-          path="/secret"
+          path="/secrets"
           element={
             <ProtectedRoute>
               <SecretPage />
