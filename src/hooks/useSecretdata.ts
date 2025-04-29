@@ -1,6 +1,5 @@
-// src/hooks/useSecretData.ts
 import { useState, useEffect } from "react";
-import { getSecretData } from "../libs/firebase/firestore";
+import { getSecretData, getSecretList } from "../libs/firebase/firestore/secrets";
 
 export function useSecretData(id: string) {
   const [data, setData] = useState<any>(null);
@@ -13,7 +12,7 @@ export function useSecretData(id: string) {
         const result = await getSecretData(id);
         setData(result);
       } catch (e) {
-        console.log({e})
+        console.log({ e });
         setError(e as Error);
       } finally {
         setLoading(false);
@@ -21,6 +20,29 @@ export function useSecretData(id: string) {
     }
     fetchData();
   }, [id]);
+
+  return { data, loading, error };
+}
+
+export function useSecretList() {
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await getSecretList();
+        setData(result);
+      } catch (e) {
+        console.log({ e });
+        setError(e as Error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   return { data, loading, error };
 }
