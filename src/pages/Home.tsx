@@ -8,6 +8,9 @@ export const Home = () => {
       <Link to="/history" className="text-blue-500 underline">
         経歴のページへ移動する
       </Link>
+      <Link to="/books" className="text-blue-500 underline">
+        本のページへ移動する
+      </Link>
     </div>
   );
 };
