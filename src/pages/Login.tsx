@@ -10,7 +10,7 @@ export const Login = () => {
       const result = await signInWithPopup(auth, provider);
       console.log("ログイン成功:", result.user);
       if (result.user.email == "2255070t@gsuite.kobe-u.ac.jp") {
-        navigate("/secrets");
+        navigate("/home");
       } else {
         navigate("/home");
       }
