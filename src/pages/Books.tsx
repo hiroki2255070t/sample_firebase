@@ -1,4 +1,6 @@
 import { useState, useMemo } from "react";
+import { Loading } from "../components/Loading";
+import { ErrorPage } from "./ErrorPage";
 import { useBookList } from "../hooks/useBooks";
 import { Book } from "../types/book";
 import { BookMemo } from "./BookMemo";
@@ -42,8 +44,8 @@ export const Books = () => {
     });
   }, [data, filterTags, sortAsc]);
 
-  if (loading) return <div>読み込み中...</div>;
-  if (error) return <div>エラー: {error.message}</div>;
+  if (loading) return <Loading></Loading>;
+  if (error) return <ErrorPage error={error}></ErrorPage>;
 
   return (
     <div className="relative p-4 space-y-4 max-w-3xl mx-auto">
@@ -53,7 +55,7 @@ export const Books = () => {
         {allTags.map((tag, index) => (
           <button
             key={index}
-            className={`px-4 py-2 rounded border transition-colors ${
+            className={`px-4 py-2 rounded border border-gray-300 transition-colors ${
               filterTags.includes(tag)
                 ? "bg-blue-500 text-white"
                 : "bg-white text-gray-800 hover:bg-gray-100"
@@ -77,7 +79,7 @@ export const Books = () => {
       {filteredAndSortedBooks.map((book, index) => (
         <div
           key={index}
-          className="border rounded-lg p-4 shadow transition-colors hover:bg-gray-100 cursor-pointer"
+          className="border border-gray-100 rounded-lg p-4 transition-colors hover:bg-gray-100 cursor-pointer shadow-md"
           onClick={() => setSelectedBook(book)}
         >
           <div className="font-semibold text-xl mb-1">{book.title}</div>
