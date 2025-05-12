@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useBookList } from "../hooks/useBooks";
 import { Book } from "../types/book";
 import { BookMemo } from "./BookMemo";
+import { RxCross1 } from "react-icons/rx";
 
 function formatDateYM(dateStr: string): string {
   const [year, month] = dateStr.split("/").map(Number);
@@ -91,20 +92,24 @@ export const Books = () => {
 
       {selectedBook && (
         <div
-          className="fixed inset-0 bg-gray-500 bg-opacity-5 flex items-center justify-center z-50"
+          className="fixed inset-0 backdrop-blur-xs flex items-center justify-center z-50"
           onClick={() => setSelectedBook(null)}
         >
           <div
-            className="bg-white rounded-lg shadow-lg px-2 py-2 w-3/4 h-3/4 relative"
+            className="relative w-3/4 max-w-3xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 m-8 text-4xl"
+              className="absolute -top-10 right-0 px-4 py-2 text-gray-500 hover:text-gray-700"
               onClick={() => setSelectedBook(null)}
             >
-              ×
+              <RxCross1 className="h-8 w-8" />
             </button>
-            <BookMemo filename={selectedBook.filename}></BookMemo>
+            <div className="bg-white shadow-lg w-full h-[80vh] overflow-hidden rounded-lg">
+              <div className="overflow-y-auto max-h-[calc(80vh-2.5rem)] p-4">
+                <BookMemo filename={selectedBook.filename} />
+              </div>
+            </div>
           </div>
         </div>
       )}
