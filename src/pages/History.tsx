@@ -14,7 +14,7 @@ const sortHistoryList = (historyList: History[]): History[] => {
 
 const Event = ({ history }: { history: History }) => {
   return (
-    <div className="bg-zinc-100 hover:bg-stone-200 transition-colors duration-300 shadow-md rounded-2xl p-4 flex justify-between items-center">
+    <div className="bg-zinc-100 transition-colors shadow-md rounded-2xl p-4 flex justify-between items-center">
       <div className="w-1/3">
         <div className="text-xl font-semibold text-gray-800 w-1/2">
           {history.year}年
