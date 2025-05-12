@@ -7,7 +7,8 @@ export const BookMemo = ({ filename }: { filename: string }) => {
   const [content, setContent] = useState<string>("");
 
   useEffect(() => {
-    const filePath = `../../docs/${filename}`;
+    console.log({filename})
+    const filePath = `../../docs/books/${filename}`;
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {
