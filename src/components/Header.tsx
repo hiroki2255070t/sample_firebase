@@ -27,6 +27,9 @@ export const Header: React.FC = () => {
               <Link to="/hobby" className="text-gray-700 hover:text-gray-900">
                 趣味
               </Link>
+              <Link to="/job" className="text-gray-700 hover:text-gray-900">
+                アルバイト
+              </Link>
             </div>
             <div className="md:hidden">
               <button
@@ -86,6 +89,12 @@ export const Header: React.FC = () => {
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
           >
             趣味
+          </Link>
+          <Link
+            to="/job"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
+          >
+            アルバイト
           </Link>
         </div>
       )}

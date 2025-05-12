@@ -6,6 +6,8 @@ import { Home } from "./pages/Home.tsx";
 import { Login } from "./pages/Login.tsx";
 import { HistoryPage } from "./pages/History.tsx";
 import { HobbyPage } from "./pages/HobbyPage.tsx";
+import { JobPage } from "./pages/JobPage.tsx";
+import { JobDetail } from "./pages/JobDetail.tsx";
 import { Books } from "./pages/Books.tsx";
 import { SecretPage } from "./pages/SecretPage.tsx";
 import { HobbyDetail } from "./pages/HobbyDetail.tsx";
@@ -21,6 +23,8 @@ function App() {
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/hobby" element={<HobbyPage />} />
         <Route path="/hobby/detail/:id" element={<HobbyDetail />} />
+        <Route path="/job" element={<JobPage />} />
+        <Route path="/job/detail/:id" element={<JobDetail />} />
         <Route path="/books" element={<Books />} />
         <Route
           path="/secrets"
