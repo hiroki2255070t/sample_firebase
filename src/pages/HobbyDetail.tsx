@@ -31,7 +31,9 @@ export const HobbyDetail = () => {
       )}
       {!content && (
         <div className="flex flex-col items-center justify-center h-full">
-          <p>趣味情報がありません</p>
+          <div className="p-4 py-8">
+            <p>"{id}"の趣味情報は現在用意されていません🙇</p>
+          </div>
         </div>
       )}
     </>
