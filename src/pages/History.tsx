@@ -20,7 +20,7 @@ export const HistoryPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-12 px-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">俺の歴史</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">経歴</h1>
 
       <Link
         to="/home"
