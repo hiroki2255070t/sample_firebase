@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+import { Loading } from "../components/Loading";
+import { ErrorPage } from "./ErrorPage";
 import { useHistoryList } from "../hooks/useHistory";
 import { History } from "../types/history";
 
@@ -10,26 +10,17 @@ const sortHistoryList = (historyList: History[]): History[] => {
     }
     return a.month - b.month;
   });
-}
+};
 
 export const HistoryPage = () => {
   const { data, loading, error } = useHistoryList();
 
-  if (loading) return <div>読み込み中...</div>;
-  if (error) return <div>エラー: {error.message}</div>;
+  if (loading) return <Loading></Loading>;
+  if (error) return <ErrorPage error={error}></ErrorPage>;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start py-12 px-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">俺の歴史</h1>
-
-      <Link
-        to="/home"
-        className="flex items-center text-purple-600 hover:text-purple-800 mb-10"
-      >
-        <FaArrowLeft className="mr-2" />
-        ホームに戻る
-      </Link>
-
+    <div className="min-h-screen flex flex-col items-center justify-start py-12 px-4">
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">経歴</h1>
       <div className="w-2/3 max-w-2xl space-y-4">
         {sortHistoryList(data).map((item, index) => (
           <div

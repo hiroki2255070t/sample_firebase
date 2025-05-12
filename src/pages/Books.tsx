@@ -1,7 +1,10 @@
 import { useState, useMemo } from "react";
+import { Loading } from "../components/Loading";
+import { ErrorPage } from "./ErrorPage";
 import { useBookList } from "../hooks/useBooks";
 import { Book } from "../types/book";
 import { BookMemo } from "./BookMemo";
+import { RxCross1 } from "react-icons/rx";
 
 function formatDateYM(dateStr: string): string {
   const [year, month] = dateStr.split("/").map(Number);
@@ -41,8 +44,8 @@ export const Books = () => {
     });
   }, [data, filterTags, sortAsc]);
 
-  if (loading) return <div>読み込み中...</div>;
-  if (error) return <div>エラー: {error.message}</div>;
+  if (loading) return <Loading></Loading>;
+  if (error) return <ErrorPage error={error}></ErrorPage>;
 
   return (
     <div className="relative p-4 space-y-4 max-w-3xl mx-auto">
@@ -52,7 +55,7 @@ export const Books = () => {
         {allTags.map((tag, index) => (
           <button
             key={index}
-            className={`px-4 py-2 rounded border transition-colors ${
+            className={`px-4 py-2 rounded border border-gray-300 transition-colors ${
               filterTags.includes(tag)
                 ? "bg-blue-500 text-white"
                 : "bg-white text-gray-800 hover:bg-gray-100"
@@ -76,7 +79,7 @@ export const Books = () => {
       {filteredAndSortedBooks.map((book, index) => (
         <div
           key={index}
-          className="border rounded-lg p-4 shadow transition-colors hover:bg-gray-100 cursor-pointer"
+          className="border border-gray-100 rounded-lg p-4 transition-colors hover:bg-gray-100 cursor-pointer shadow-md"
           onClick={() => setSelectedBook(book)}
         >
           <div className="font-semibold text-xl mb-1">{book.title}</div>
@@ -90,15 +93,25 @@ export const Books = () => {
       ))}
 
       {selectedBook && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-5 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg px-2 py-2 w-full max-w relative">
+        <div
+          className="fixed inset-0 backdrop-blur-xs flex items-center justify-center z-50"
+          onClick={() => setSelectedBook(null)}
+        >
+          <div
+            className="relative w-3/4 max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 m-8"
+              className="absolute -top-10 right-0 px-4 py-2 text-gray-500 hover:text-gray-700"
               onClick={() => setSelectedBook(null)}
             >
-              ×
+              <RxCross1 className="h-8 w-8" />
             </button>
-            <BookMemo filename={selectedBook.filename}></BookMemo>
+            <div className="bg-white shadow-lg w-full h-[80vh] overflow-hidden rounded-lg">
+              <div className="overflow-y-auto max-h-[calc(80vh-2.5rem)] p-4">
+                <BookMemo filename={selectedBook.filename} />
+              </div>
+            </div>
           </div>
         </div>
       )}
