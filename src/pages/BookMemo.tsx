@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MarkdownViewer } from "../components/MarkdownViewer";
 
-const markdownModules = import.meta.glob("../../docs/*.md", { as: "raw" });
+const markdownModules = import.meta.glob("../../docs/books/*.md", { as: "raw" });
 
 export const BookMemo = ({ filename }: { filename: string }) => {
   const [content, setContent] = useState<string>("");
