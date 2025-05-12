@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,6 +23,12 @@ export const Header: React.FC = () => {
               </Link>
               <Link to="/books" className="text-gray-700 hover:text-gray-900">
                 読んだ本
+              </Link>
+              <Link to="/hobby" className="text-gray-700 hover:text-gray-900">
+                趣味
+              </Link>
+              <Link to="/job" className="text-gray-700 hover:text-gray-900">
+                アルバイト
               </Link>
             </div>
             <div className="md:hidden">
@@ -78,6 +83,18 @@ export const Header: React.FC = () => {
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
           >
             読んだ本
+          </Link>
+          <Link
+            to="/hobby"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
+          >
+            趣味
+          </Link>
+          <Link
+            to="/job"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
+          >
+            アルバイト
           </Link>
         </div>
       )}

@@ -5,7 +5,7 @@ const markdownModules = import.meta.glob("../../docs/books/*.md", {
   as: "raw",
 });
 
-export const BookMemo = ({ filename }: { filename: string }) => {
+export const BookDetail = ({ filename }: { filename: string }) => {
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {

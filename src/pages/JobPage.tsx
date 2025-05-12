@@ -20,33 +20,14 @@ const PageCard = ({
   );
 };
 
-export const Home = () => {
+export const JobPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br px-4">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-10 drop-shadow-lg">
-        ようこそ
+        アルバイト・インターン
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-xl">
-        <PageCard
-          path="/history"
-          title="経歴"
-          text="これまでにやってきたことを紹介します！"
-        ></PageCard>
-        <PageCard
-          path="/books"
-          title="本"
-          text="おすすめの書籍や読書記録をまとめています！"
-        ></PageCard>
-        <PageCard
-          path="/hobby"
-          title="趣味"
-          text="自分の趣味を紹介します！"
-        ></PageCard>
-        <PageCard
-          path="/job"
-          title="アルバイト・インターン"
-          text="これまでに経験したアルバイト等について紹介します！"
-        ></PageCard>
+        <PageCard path="detail/digeon" title="Digeon" text="🐦"></PageCard>
       </div>
     </div>
   );

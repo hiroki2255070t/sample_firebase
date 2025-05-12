@@ -3,7 +3,7 @@ import { Loading } from "../components/Loading";
 import { ErrorPage } from "./ErrorPage";
 import { useBookList } from "../hooks/useBooks";
 import { Book } from "../types/book";
-import { BookMemo } from "./BookMemo";
+import { BookDetail } from "./BookDetail";
 import { RxCross1 } from "react-icons/rx";
 
 function formatDateYM(dateStr: string): string {
@@ -50,7 +50,6 @@ export const Books = () => {
   return (
     <div className="relative p-4 space-y-4 max-w-3xl mx-auto">
       <h1 className="text-2xl font-bold">読んだ本リスト</h1>
-
       <div className="flex flex-wrap gap-2">
         {allTags.map((tag, index) => (
           <button
@@ -109,7 +108,7 @@ export const Books = () => {
             </button>
             <div className="bg-white shadow-lg w-full h-[80vh] overflow-hidden rounded-lg">
               <div className="overflow-y-auto max-h-[calc(80vh-2.5rem)] p-4">
-                <BookMemo filename={selectedBook.filename} />
+                <BookDetail filename={selectedBook.filename} />
               </div>
             </div>
           </div>
