@@ -5,12 +5,11 @@ const markdownModules = import.meta.glob("../../docs/books/*.md", {
   as: "raw",
 });
 
-export const BookDetail = ({ filename }: { filename: string }) => {
+export const BookDetail = ({ ISBN }: { ISBN: string }) => {
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log({ filename });
-    const filePath = `../../docs/books/${filename}`;
+    const filePath = `../../docs/books/${ISBN}.md`;
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {
@@ -19,7 +18,7 @@ export const BookDetail = ({ filename }: { filename: string }) => {
     } else {
       setContent(null);
     }
-  }, [filename]);
+  }, [ISBN]);
 
   return (
     <>
