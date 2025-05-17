@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MarkdownViewer } from "../components/MarkdownViewer";
+import { MarkdownViewer } from "../../components/MarkdownViewer";
 
 const markdownModules = import.meta.glob("../../docs/job/*.md", {
   as: "raw",

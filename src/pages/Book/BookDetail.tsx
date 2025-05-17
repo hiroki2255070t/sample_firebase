@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MarkdownViewer } from "../components/MarkdownViewer";
+import { MarkdownViewer } from "../../components/MarkdownViewer";
 
 const markdownModules = import.meta.glob("../../docs/books/*.md", {
   as: "raw",
