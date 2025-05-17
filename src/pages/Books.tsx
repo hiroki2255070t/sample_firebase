@@ -86,7 +86,7 @@ export const Books = () => {
           <div className="text-gray-700">
             読んだ日付: {formatDateYM(book.dateRead)}
           </div>
-          <div className="text-gray-700">ファイル名: {book.filename}</div>
+          <div className="text-gray-700">ISBN: {book.ISBN}</div>
           <div className="text-gray-700">タグ: {book.tags.join(", ")}</div>
         </div>
       ))}
@@ -108,7 +108,7 @@ export const Books = () => {
             </button>
             <div className="bg-white shadow-lg w-full h-[80vh] overflow-hidden rounded-lg">
               <div className="overflow-y-auto max-h-[calc(80vh-2.5rem)] p-4">
-                <BookDetail filename={selectedBook.filename} />
+                <BookDetail ISBN={selectedBook.ISBN} />
               </div>
             </div>
           </div>
