@@ -5,6 +5,7 @@ import { Root } from "./pages/Root.tsx";
 import { Login } from "./pages/Login.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Header } from "./components/Header.tsx";
+import { Search } from "./pages/Search.tsx";
 import { HistoryPage } from "./pages/History.tsx";
 import { JobPage } from "./pages/Job/JobPage.tsx";
 import { JobDetail } from "./pages/Job/JobDetail.tsx";
@@ -20,12 +21,13 @@ function App() {
         <Route path="/" element={<Root />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/books" element={<Books />} />
         <Route path="/hobby" element={<HobbyPage />} />
         <Route path="/hobby/detail/:id" element={<HobbyDetail />} />
         <Route path="/job" element={<JobPage />} />
         <Route path="/job/detail/:id" element={<JobDetail />} />
-        <Route path="/books" element={<Books />} />
         <Route
           path="/secrets"
           element={
