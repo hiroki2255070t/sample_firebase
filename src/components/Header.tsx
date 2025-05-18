@@ -18,6 +18,9 @@ export const Header: React.FC = () => {
               <Link to="/home" className="text-gray-700 hover:text-gray-900">
                 Home
               </Link>
+              <Link to="/search" className="text-gray-700 hover:text-gray-900">
+                検索
+              </Link>
               <Link to="/history" className="text-gray-700 hover:text-gray-900">
                 経歴
               </Link>

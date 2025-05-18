@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MarkdownViewer } from "../components/MarkdownViewer";
+import { MarkdownViewer } from "../../components/MarkdownViewer";
 
-const markdownModules = import.meta.glob("../../docs/books/*.md", {
+const markdownModules = import.meta.glob("../../../docs/books/*.md", {
   as: "raw",
 });
 
@@ -9,7 +9,7 @@ export const BookDetail = ({ ISBN }: { ISBN: string }) => {
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
-    const filePath = `../../docs/books/${ISBN}.md`;
+    const filePath = `../../../docs/books/${ISBN}.md`;
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {

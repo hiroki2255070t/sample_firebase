@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
-import { Loading } from "../components/Loading";
-import { ErrorPage } from "./ErrorPage";
-import { useBookList } from "../hooks/useBooks";
-import { Book } from "../types/book";
+import { Loading } from "../../components/Loading";
+import { ErrorPage } from "../ErrorPage";
+import { useBookList } from "../../hooks/useBooks";
+import { Book } from "../../types/book";
 import { BookDetail } from "./BookDetail";
 import { RxCross1 } from "react-icons/rx";
 
