@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MarkdownViewer } from "../../components/MarkdownViewer";
 
-const markdownModules = import.meta.glob("../../docs/hobby/*.md", {
+const markdownModules = import.meta.glob("../../../docs/hobby/*.md", {
   as: "raw",
 });
 
@@ -11,7 +11,8 @@ export const HobbyDetail = () => {
   const id = useParams().id || "";
 
   useEffect(() => {
-    const filePath = `../../docs/hobby/${id}.md`;
+    const filePath = `../../../docs/hobby/${id}.md`;
+    console.log({filePath})
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {

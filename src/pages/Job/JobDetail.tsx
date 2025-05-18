@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MarkdownViewer } from "../../components/MarkdownViewer";
 
-const markdownModules = import.meta.glob("../../docs/job/*.md", {
+const markdownModules = import.meta.glob("../../../docs/job/*.md", {
   as: "raw",
 });
 
@@ -11,7 +11,7 @@ export const JobDetail = () => {
   const id = useParams().id || "";
 
   useEffect(() => {
-    const filePath = `../../docs/job/${id}.md`;
+    const filePath = `../../../docs/job/${id}.md`;
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {
