@@ -12,7 +12,6 @@ export const HobbyDetail = () => {
 
   useEffect(() => {
     const filePath = `../../../docs/hobby/${id}.md`;
-    console.log({filePath})
     const importer = markdownModules[filePath];
     if (importer) {
       importer().then((raw: string) => {
