@@ -14,14 +14,14 @@ export async function initializeExtractor() {
 
   const task = "feature-extraction";
   const model = "Xenova/all-MiniLM-L6-v2";
-  
+
   extractor = await pipeline(task, model, { progress_callback: console.log });
   console.log("Extractor initialized!");
 }
 
 export async function generateEmbedding(
   text: string
-): Promise<number[] | null> {
+): Promise<number[]> {
   if (!extractor) {
     console.log("Extractor is not initialized.");
     await initializeExtractor();
@@ -34,6 +34,6 @@ export async function generateEmbedding(
     return Array.from(output.data);
   } catch (error) {
     console.error("Error generating embedding:", error);
-    return null;
+    throw new Error("Embedding generation failed.");
   }
 }
