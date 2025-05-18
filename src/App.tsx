@@ -10,6 +10,7 @@ import { HistoryPage } from "./pages/History.tsx";
 import { JobPage } from "./pages/Job/JobPage.tsx";
 import { JobDetail } from "./pages/Job/JobDetail.tsx";
 import { Books } from "./pages/Book/Books.tsx";
+import { BookDetail } from "./pages/Book/BookDetail.tsx";
 import { HobbyPage } from "./pages/Hobby/HobbyPage.tsx";
 import { HobbyDetail } from "./pages/Hobby/HobbyDetail.tsx";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/books/detail/:id" element={<BookDetail />} />
         <Route path="/hobby" element={<HobbyPage />} />
         <Route path="/hobby/detail/:id" element={<HobbyDetail />} />
         <Route path="/job" element={<JobPage />} />
