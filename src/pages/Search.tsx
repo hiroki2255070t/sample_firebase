@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useEmbedding } from "../hooks/useEmbedding";
 import { Loading } from "../components/Loading";
 import { ErrorPage } from "./ErrorPage";
@@ -96,12 +97,26 @@ export const Search = () => {
       {debouncedText && (
         <>
           <h1 className="text-xl font-bold mb-4">
-            "{debouncedText}" に関連するドキュメント:
+            "{debouncedText}" に関連するドキュメント
           </h1>
-          <ul className="list-disc ml-5 space-y-2">
-            {topDocs.map((path, index) => (
-              <li key={index}>{path}</li>
-            ))}
+          <ul className="list-none ml-5 space-y-2">
+            {topDocs.map((path, index) => {
+              const [subPath, filename] = path.split("/");
+              return (
+                <Link
+                  key={index}
+                  to={`/${subPath}/detail/${filename.replace(".md", "")}`}
+                  className=""
+                >
+                  <div className="flex items-center border border-gray-100 rounded-lg p-4 transition-colors hover:bg-gray-100 cursor-pointer shadow-md m-4">
+                    <span className="text-gray-500 font-medium w-6">
+                      {index + 1}.
+                    </span>
+                    <p>{path}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </ul>
         </>
       )}
