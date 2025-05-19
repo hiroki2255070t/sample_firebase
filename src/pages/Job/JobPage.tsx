@@ -24,10 +24,15 @@ export const JobPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br px-4">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-10 drop-shadow-lg">
-        アルバイト・インターン
+        技術
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-xl">
         <PageCard path="detail/digeon" title="Digeon" text="🐦"></PageCard>
+        <PageCard
+          path="detail/kobe-u-cmds"
+          title="神戸データサイエンス操練所"
+          text="⚓️"
+        ></PageCard>
       </div>
     </div>
   );
