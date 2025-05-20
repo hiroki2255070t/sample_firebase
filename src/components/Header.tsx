@@ -76,6 +76,12 @@ export const Header: React.FC = () => {
             Home
           </Link>
           <Link
+            to="/search"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
+          >
+            検索
+          </Link>
+          <Link
             to="/history"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900"
           >
