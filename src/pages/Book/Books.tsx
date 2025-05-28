@@ -73,24 +73,22 @@ export const Books = () => {
       </div>
 
       {filteredAndSortedBooks.map((book, index) => (
-        <Link
-          key={index}
-          to={`detail/${book.ISBN}`}
-          className=""
-        >
-          <div
-            key={index}
-            className="border border-gray-100 rounded-lg p-4 transition-colors hover:bg-gray-100 cursor-pointer shadow-md"
-          >
-            <div className="font-semibold text-xl mb-1">{book.title}</div>
-            <div className="text-gray-700">著者: {book.author}</div>
-            <div className="text-gray-700">
-              読んだ日付: {formatDateYM(book.dateRead)}
+        <div className="m-0.5">
+          <Link key={index} to={`detail/${book.ISBN}`}>
+            <div
+              key={index}
+              className="border border-gray-100 rounded-lg p-4 transition-colors hover:bg-gray-100 cursor-pointer shadow-md"
+            >
+              <div className="font-semibold text-xl mb-1">{book.title}</div>
+              <div className="text-gray-700">著者: {book.author}</div>
+              <div className="text-gray-700">
+                読んだ日付: {formatDateYM(book.dateRead)}
+              </div>
+              <div className="text-gray-700">ISBN: {book.ISBN}</div>
+              <div className="text-gray-700">タグ: {book.tags.join(", ")}</div>
             </div>
-            <div className="text-gray-700">ISBN: {book.ISBN}</div>
-            <div className="text-gray-700">タグ: {book.tags.join(", ")}</div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
